@@ -608,12 +608,16 @@
 
     .booking-grid {
       display: grid;
-      grid-template-columns: 0.78fr 0.92fr 1.2fr;
-      gap: 20px;
-      align-items: start;
+      grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.05fr);
+      grid-template-areas:
+        "map form"
+        "hours form";
+      gap: 18px 24px;
+      align-items: stretch;
     }
 
     .hours {
+      grid-area: hours;
       padding: 28px;
       border-radius: 8px;
       background: var(--ink);
@@ -629,31 +633,50 @@
       color: rgba(255, 255, 255, 0.76);
     }
 
+    .hours .kicker {
+      color: #9af1df;
+    }
+
     .hours dl {
       display: grid;
-      gap: 12px;
+      gap: 0;
       margin: 28px 0 0;
     }
 
     .hours div {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      padding-bottom: 12px;
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr);
+      gap: 14px;
+      padding: 13px 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .hours div:first-child {
+      padding-top: 0;
+    }
+
+    .hours div:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
     }
 
     .hours dt {
       color: rgba(255, 255, 255, 0.74);
+      white-space: nowrap;
     }
 
     .hours dd {
       margin: 0;
       font-weight: 800;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
     }
 
     .store-map {
+      grid-area: map;
       margin: 0;
+      display: grid;
+      grid-template-rows: minmax(270px, 1fr) auto;
       border-radius: 8px;
       overflow: hidden;
       background: #f8fffb;
@@ -664,21 +687,24 @@
     .store-map img {
       display: block;
       width: 100%;
-      height: auto;
-      min-height: 320px;
+      height: 100%;
+      min-height: 0;
+      aspect-ratio: 16 / 10;
       object-fit: cover;
     }
 
     .map-caption {
-      padding: 14px 18px 17px;
+      padding: 15px 18px 17px;
       color: var(--muted);
       font-size: 14px;
+      line-height: 1.55;
       font-weight: 750;
       border-top: 1px solid var(--line);
       background: rgba(255, 255, 255, 0.84);
     }
 
     .form {
+      grid-area: form;
       display: grid;
       gap: 16px;
       padding: 28px;
@@ -761,11 +787,12 @@
 
     @media (max-width: 1040px) {
       .booking-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: minmax(300px, 0.9fr) minmax(0, 1.1fr);
+        gap: 18px;
       }
 
       .form {
-        grid-column: 1 / -1;
+        grid-column: auto;
       }
     }
 
@@ -784,6 +811,13 @@
       .split-grid,
       .booking-grid {
         grid-template-columns: 1fr;
+      }
+
+      .booking-grid {
+        grid-template-areas:
+          "map"
+          "hours"
+          "form";
       }
 
       .form {
@@ -889,8 +923,14 @@
         padding: 22px;
       }
 
+      .hours div {
+        grid-template-columns: 1fr;
+        gap: 5px;
+        padding: 12px 0;
+      }
+
       .store-map img {
-        min-height: 260px;
+        aspect-ratio: 4 / 3;
       }
     }
   </style>
