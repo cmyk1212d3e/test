@@ -348,7 +348,7 @@
     }
 
     .service-card {
-      min-height: 330px;
+      min-height: 390px;
       border-radius: 8px;
       overflow: hidden;
       background: var(--white);
@@ -357,7 +357,7 @@
     }
 
     .service-image {
-      height: 180px;
+      height: 210px;
       background: var(--mist);
     }
 
@@ -477,14 +477,14 @@
 
     .pricing {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 18px;
     }
 
     .price-card {
       position: relative;
       padding: 26px;
-      min-height: 360px;
+      min-height: 390px;
       display: flex;
       flex-direction: column;
       border-radius: 8px;
@@ -516,7 +516,7 @@
     }
 
     .price {
-      margin-bottom: 18px;
+      margin-bottom: 8px;
       color: var(--ink);
       font-size: 44px;
       font-weight: 950;
@@ -527,6 +527,13 @@
       color: var(--muted);
       font-size: 15px;
       font-weight: 700;
+    }
+
+    .price-note {
+      margin: 0 0 18px;
+      color: var(--teal);
+      font-size: 14px;
+      font-weight: 850;
     }
 
     .price-card ul {
@@ -557,6 +564,49 @@
     .price-card .button {
       width: 100%;
       margin-top: auto;
+    }
+
+    .add-on-panel {
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 24px;
+      align-items: start;
+      margin-top: 22px;
+      padding: 24px;
+      border-radius: 8px;
+      background: #f8fffb;
+      border: 1px solid var(--line);
+    }
+
+    .add-on-panel h3 {
+      margin-bottom: 0;
+      font-size: 26px;
+    }
+
+    .add-ons {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .add-on {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      min-height: 52px;
+      align-items: center;
+      padding: 12px 14px;
+      border-radius: 6px;
+      background: var(--white);
+      border: 1px solid rgba(219, 230, 231, 0.86);
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 760;
+    }
+
+    .add-on strong {
+      color: var(--coral);
+      white-space: nowrap;
     }
 
     .gallery-band {
@@ -786,6 +836,14 @@
     }
 
     @media (max-width: 1040px) {
+      .pricing {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .add-on-panel {
+        grid-template-columns: 1fr;
+      }
+
       .booking-grid {
         grid-template-columns: minmax(300px, 0.9fr) minmax(0, 1.1fr);
         gap: 18px;
@@ -834,7 +892,8 @@
       }
 
       .services,
-      .pricing {
+      .pricing,
+      .add-ons {
         grid-template-columns: 1fr;
       }
 
@@ -951,9 +1010,9 @@
         <span>泡泡爪 Pet Spa</span>
       </a>
       <div class="nav-links">
-        <a href="#services">洗护服务</a>
+        <a href="#services">洗护项目</a>
         <a href="#care">护理标准</a>
-        <a href="#pricing">套餐价格</a>
+        <a href="#pricing">价位表</a>
         <a href="#booking">预约到店</a>
       </div>
       <a class="nav-cta" href="#booking">立即预约</a>
@@ -977,15 +1036,15 @@
         <div>
           <p class="eyebrow">社区宠物洗护 · 美容 · 护理</p>
           <h1>泡泡爪 Pet Spa</h1>
-          <p class="hero-copy">给爱宠一场清爽、安心、低压力的洗护体验。独立洗护间、温和护理产品、透明报价，让每一次到店都更省心。</p>
+          <p class="hero-copy">给爱宠一场清爽、安心、低压力的洗护体验。独立洗护间、温和护理产品、透明价位表，让每一次到店都更省心。</p>
           <div class="hero-actions">
             <a class="button" href="#booking">预约洗护</a>
-            <a class="button secondary" href="#pricing">查看套餐</a>
+            <a class="button secondary" href="#pricing">查看价位</a>
           </div>
         </div>
         <aside class="hero-note">
           <strong>今日可约</strong>
-          <span>小型犬基础洗护约 60 分钟，猫咪护理需提前确认性格与状态。</span>
+          <span>小型犬基础洗护约 60 分钟，猫咪护理需提前确认性格与当日状态。</span>
         </aside>
       </div>
       <div class="hero-dots" aria-label="店内环境轮播图">
@@ -1000,42 +1059,75 @@
         <div class="section-head">
           <div>
             <p class="kicker">Services</p>
-            <h2>从日常清洁到造型护理，一站式照顾毛孩子</h2>
+            <h2>洗护项目更细分，按体型、毛量和状态安排流程</h2>
           </div>
-          <p>服务前会先做皮毛状态检查，根据体型、毛量、皮肤敏感度和当日状态调整流程。</p>
+          <p>服务前先做皮毛状态检查，再根据体型、毛量、皮肤敏感度和当天情绪调整洗护方式。</p>
         </div>
 
         <div class="services">
           <article class="service-card">
             <div class="service-image">
-              <img src="public/assets/store-spa.png" alt="专业洗护水疗区" />
+              <img src="public/assets/service-basic-bath.png" alt="小型犬在宠物洗护店接受温和基础洗澡" />
             </div>
             <div class="service-body">
-              <h3>基础洗护</h3>
-              <p>温水清洗、低噪吹干、耳道清洁、脚底毛修整和基础梳理。</p>
-              <div class="meta"><span>适合日常养护</span><strong>¥98 起</strong></div>
+              <h3>基础洁净洗护</h3>
+              <p>温水清洁、低噪吹干、耳道清洁、指甲修剪、脚底毛修整和基础梳理，适合日常维持干净清爽。</p>
+              <div class="meta"><span>日常高频</span><strong>¥98 起</strong></div>
             </div>
           </article>
 
           <article class="service-card">
             <div class="service-image">
-              <img src="public/assets/store-grooming.png" alt="吹干造型区" />
+              <img src="public/assets/service-coat-spa.png" alt="金毛犬在宠物 SPA 房进行深层护毛护理" />
             </div>
             <div class="service-body">
-              <h3>精修美容</h3>
-              <p>脸部修型、身体造型、毛量打薄、细节轮廓和成片拍照。</p>
-              <div class="meta"><span>适合换季造型</span><strong>¥188 起</strong></div>
+              <h3>深层护毛 SPA</h3>
+              <p>针对毛量厚、换毛期或毛发干涩的宠物，增加开结梳理、护毛乳停留和顺毛吹整。</p>
+              <div class="meta"><span>毛量友好</span><strong>¥168 起</strong></div>
             </div>
           </article>
 
           <article class="service-card">
             <div class="service-image">
-              <img src="public/assets/store-reception.png" alt="前厅接待区" />
+              <img src="public/assets/service-styling-trim.png" alt="贵宾犬在美容台上进行精修造型" />
             </div>
             <div class="service-body">
-              <h3>猫咪护理</h3>
-              <p>轻柔梳理、浮毛处理、局部清洁和指甲修剪，尽量减少应激。</p>
-              <div class="meta"><span>需提前预约</span><strong>¥168 起</strong></div>
+              <h3>精修美容造型</h3>
+              <p>脸部轮廓、身体线条、四肢圆柱、尾部造型与局部细节修剪，完成后可拍一张到店状态照。</p>
+              <div class="meta"><span>换季焕新</span><strong>¥238 起</strong></div>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-image">
+              <img src="public/assets/service-cat-care.png" alt="长毛猫在安静房间进行梳毛护理" />
+            </div>
+            <div class="service-body">
+              <h3>猫咪安抚护理</h3>
+              <p>独立安静时段，包含轻柔梳理、浮毛处理、指甲修剪、局部清洁，按猫咪状态分段完成。</p>
+              <div class="meta"><span>提前预约</span><strong>¥198 起</strong></div>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-image">
+              <img src="public/assets/store-spa.png" alt="宠物洗护水疗区的温和护理环境" />
+            </div>
+            <div class="service-body">
+              <h3>敏感肌舒缓洗</h3>
+              <p>使用低刺激配方，避开浓香和强清洁产品，洗前确认皮肤状态，洗后反馈红疹、皮屑与抓挠情况。</p>
+              <div class="meta"><span>皮肤关注</span><strong>¥158 起</strong></div>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-image">
+              <img src="public/assets/store-grooming.png" alt="宠物洗护店的大型犬吹干造型区" />
+            </div>
+            <div class="service-body">
+              <h3>大型犬减压洗护</h3>
+              <p>预留更长洗护台位与吹干时间，分区吹干、短时休息，降低大型犬久站和噪音带来的压力。</p>
+              <div class="meta"><span>大狗专属</span><strong>¥288 起</strong></div>
             </div>
           </article>
         </div>
@@ -1046,13 +1138,13 @@
       <div class="section-inner split-grid">
         <div class="portrait-stack" aria-hidden="true">
           <div class="portrait">
-            <img src="public/assets/store-grooming.png" alt="" />
+            <img src="public/assets/service-styling-trim.png" alt="" />
           </div>
           <div class="portrait small">
-            <img src="public/assets/store-spa.png" alt="" />
+            <img src="public/assets/service-coat-spa.png" alt="" />
           </div>
           <div class="portrait small">
-            <img src="public/assets/store-reception.png" alt="" />
+            <img src="public/assets/service-cat-care.png" alt="" />
           </div>
         </div>
 
@@ -1099,48 +1191,79 @@
         <div class="section-head">
           <div>
             <p class="kicker">Pricing</p>
-            <h2>常用套餐清晰标价，按体型和毛量微调</h2>
+            <h2>常用价位表清晰标价，到店按实际毛量微调</h2>
           </div>
-          <p>到店前可先发送爱宠照片，工作人员会预估时长和价格范围。</p>
+          <p>到店前可先发送爱宠照片，工作人员会预估时长和价格范围，严重打结、特殊护理会提前确认。</p>
         </div>
 
         <div class="pricing">
           <article class="price-card">
-            <h3>轻松洁净</h3>
+            <h3>小型犬日常洗护</h3>
             <div class="price">¥98 <span>起</span></div>
+            <p class="price-note">约 60-80 分钟</p>
             <ul>
-              <li>洗澡与基础吹干</li>
-              <li>指甲修剪</li>
+              <li>温和沐浴与吹干</li>
               <li>耳道清洁</li>
+              <li>指甲修剪</li>
               <li>脚底毛修整</li>
             </ul>
-            <a class="button" href="#booking" data-plan="轻松洁净">选择套餐</a>
+            <a class="button" href="#booking" data-plan="小型犬日常洗护">选择套餐</a>
           </article>
 
           <article class="price-card featured">
             <span class="badge">热门</span>
-            <h3>全身精护</h3>
-            <div class="price">¥188 <span>起</span></div>
+            <h3>中型犬全身精护</h3>
+            <div class="price">¥168 <span>起</span></div>
+            <p class="price-note">约 90-120 分钟</p>
             <ul>
               <li>基础洗护全套</li>
-              <li>开结与深层梳理</li>
-              <li>局部修型</li>
-              <li>护理后状态反馈</li>
+              <li>深层梳理与开结</li>
+              <li>护毛乳护理</li>
+              <li>护理状态反馈</li>
             </ul>
-            <a class="button" href="#booking" data-plan="全身精护">选择套餐</a>
+            <a class="button" href="#booking" data-plan="中型犬全身精护">选择套餐</a>
           </article>
 
           <article class="price-card">
-            <h3>造型焕新</h3>
-            <div class="price">¥268 <span>起</span></div>
+            <h3>造型美容套餐</h3>
+            <div class="price">¥238 <span>起</span></div>
+            <p class="price-note">按体型与毛量微调</p>
             <ul>
               <li>全身洗护</li>
               <li>专属造型修剪</li>
               <li>毛发柔顺护理</li>
-              <li>到店成片一张</li>
+              <li>到店状态照</li>
             </ul>
-            <a class="button" href="#booking" data-plan="造型焕新">选择套餐</a>
+            <a class="button" href="#booking" data-plan="造型美容套餐">选择套餐</a>
           </article>
+
+          <article class="price-card">
+            <h3>猫咪安抚护理</h3>
+            <div class="price">¥198 <span>起</span></div>
+            <p class="price-note">需提前确认性格</p>
+            <ul>
+              <li>浮毛梳理</li>
+              <li>指甲修剪</li>
+              <li>局部清洁</li>
+              <li>分段安抚休息</li>
+            </ul>
+            <a class="button" href="#booking" data-plan="猫咪安抚护理">选择套餐</a>
+          </article>
+        </div>
+
+        <div class="add-on-panel">
+          <div>
+            <p class="kicker">Add-ons</p>
+            <h3>加项价位</h3>
+          </div>
+          <div class="add-ons">
+            <div class="add-on"><span>局部开结</span><strong>¥30-80</strong></div>
+            <div class="add-on"><span>药浴/舒缓洗</span><strong>¥60 起</strong></div>
+            <div class="add-on"><span>牙齿清洁</span><strong>¥39</strong></div>
+            <div class="add-on"><span>肉垫护理</span><strong>¥29</strong></div>
+            <div class="add-on"><span>肛门腺护理</span><strong>¥20</strong></div>
+            <div class="add-on"><span>大型犬加时</span><strong>¥80 起</strong></div>
+          </div>
         </div>
       </div>
     </section>
@@ -1148,16 +1271,16 @@
     <section class="gallery-band" aria-label="店内护理片段">
       <div class="gallery">
         <figure class="gallery-item">
-          <img src="public/assets/store-reception.png" alt="高端宠物洗护店前厅接待区" />
-          <figcaption class="gallery-caption"><strong>蓬松收尾</strong><span>洗后梳理，让毛发更轻盈。</span></figcaption>
+          <img src="public/assets/service-basic-bath.png" alt="温和犬只基础洗护服务" />
+          <figcaption class="gallery-caption"><strong>洁净洗护</strong><span>从耳朵、指甲到脚底细节都做完整。</span></figcaption>
         </figure>
         <figure class="gallery-item">
-          <img src="public/assets/store-spa.png" alt="高端宠物洗护店专业洗护水疗区" />
-          <figcaption class="gallery-caption"><strong>多宠家庭</strong><span>可安排连续时段到店。</span></figcaption>
+          <img src="public/assets/service-styling-trim.png" alt="宠物美容造型修剪服务" />
+          <figcaption class="gallery-caption"><strong>精修造型</strong><span>按毛量和脸型调整线条，不只剪短。</span></figcaption>
         </figure>
         <figure class="gallery-item">
-          <img src="public/assets/store-grooming.png" alt="高端宠物洗护店吹干造型区" />
-          <figcaption class="gallery-caption"><strong>护理记录</strong><span>每次都留下清晰反馈。</span></figcaption>
+          <img src="public/assets/service-cat-care.png" alt="猫咪低压力梳毛护理服务" />
+          <figcaption class="gallery-caption"><strong>猫咪护理</strong><span>安静时段、分段处理，把压力降下来。</span></figcaption>
         </figure>
       </div>
     </section>
@@ -1177,7 +1300,7 @@
         </aside>
 
         <figure class="store-map" aria-label="泡泡爪 Pet Spa 门店位置示意图">
-          <img src="public/assets/store-map-ai.png" alt="可爱清新宠物店风格地图，标出我们的店位于上海市宜川路街道陕西北路1620号" />
+          <img src="public/assets/store-map-ai.png" alt="可爱清新宠物店风格地图，标出门店位于上海市宜川路街道陕西北路1620号" />
           <figcaption class="map-caption">上海市宜川路街道陕西北路1620号，靠近陕西北路与南昌路路口。</figcaption>
         </figure>
 
@@ -1189,7 +1312,7 @@
             </label>
             <label>
               联系电话
-              <input name="phone" type="tel" placeholder="请输入手机号码" required />
+              <input name="phone" type="tel" placeholder="请输入手机号" required />
             </label>
           </div>
 
@@ -1208,9 +1331,10 @@
               意向套餐
               <select name="plan" id="planSelect" required>
                 <option value="">请选择</option>
-                <option>轻松洁净</option>
-                <option>全身精护</option>
-                <option>造型焕新</option>
+                <option>小型犬日常洗护</option>
+                <option>中型犬全身精护</option>
+                <option>造型美容套餐</option>
+                <option>猫咪安抚护理</option>
                 <option>先咨询</option>
               </select>
             </label>
@@ -1251,7 +1375,7 @@
   <footer>
     <div class="footer-inner">
       <span>泡泡爪 Pet Spa · 宠物洗护与美容</span>
-      <span>干净、温柔、准时，让爱宠漂亮回家。</span>
+      <span>干净、温柔、准时，让爱宠漂漂亮亮回家。</span>
     </div>
   </footer>
 
@@ -1298,7 +1422,7 @@
       event.preventDefault();
       const form = event.currentTarget;
       const formData = new FormData(form);
-      const owner = formData.get("owner") || "您";
+      const owner = formData.get("owner") || "主人";
       const plan = formData.get("plan") || "洗护";
       statusNode.textContent = `${owner}，${plan}预约已记录，稍后会电话确认。`;
       form.reset();
