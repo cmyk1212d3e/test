@@ -16,70 +16,113 @@ const heroSlides: Slide[] = [
 
 const services = [
   {
-    title: "基础洗护",
-    copy: "温水清洗、低噪吹干、耳道清洁、脚底毛修整和基础梳理。",
-    tag: "适合日常养护",
+    title: "基础洁净洗护",
+    copy: "温水清洁、低噪吹干、耳道清洁、指甲修剪、脚底毛修整和基础梳理，适合日常维持干净清爽。",
+    tag: "日常高频",
     price: "¥98 起",
-    src: "/assets/store-spa.png",
-    alt: "专业洗护水疗区"
+    src: "/assets/service-basic-bath.png",
+    alt: "小型犬在宠物洗护店接受温和基础洗澡"
   },
   {
-    title: "精修美容",
-    copy: "脸部修型、身体造型、毛量打薄、细节轮廓和成片拍照。",
-    tag: "适合换季造型",
-    price: "¥188 起",
-    src: "/assets/store-grooming.png",
-    alt: "吹干造型区"
-  },
-  {
-    title: "猫咪护理",
-    copy: "轻柔梳理、浮毛处理、局部清洁和指甲修剪，尽量减少应激。",
-    tag: "需提前预约",
+    title: "深层护毛 SPA",
+    copy: "针对毛量厚、换毛期或毛发干涩的宠物，增加开结梳理、护毛乳停留和顺毛吹整。",
+    tag: "毛量友好",
     price: "¥168 起",
-    src: "/assets/store-reception.png",
-    alt: "前厅接待区"
+    src: "/assets/service-coat-spa.png",
+    alt: "金毛犬在宠物 SPA 房进行深层护毛护理"
+  },
+  {
+    title: "精修美容造型",
+    copy: "脸部轮廓、身体线条、四肢圆柱、尾部造型与局部细节修剪，完成后可拍一张到店状态照。",
+    tag: "换季焕新",
+    price: "¥238 起",
+    src: "/assets/service-styling-trim.png",
+    alt: "贵宾犬在美容台上进行精修造型"
+  },
+  {
+    title: "猫咪安抚护理",
+    copy: "独立安静时段，包含轻柔梳理、浮毛处理、指甲修剪、局部清洁，按猫咪状态分段完成。",
+    tag: "提前预约",
+    price: "¥198 起",
+    src: "/assets/service-cat-care.png",
+    alt: "长毛猫在安静房间进行梳毛护理"
+  },
+  {
+    title: "敏感肌舒缓洗",
+    copy: "使用低刺激配方，避开浓香和强清洁产品，洗前确认皮肤状态，洗后反馈红疹、皮屑与抓挠情况。",
+    tag: "皮肤关注",
+    price: "¥158 起",
+    src: "/assets/store-spa.png",
+    alt: "宠物洗护水疗区的温和护理环境"
+  },
+  {
+    title: "大型犬减压洗护",
+    copy: "预留更长洗护台位与吹干时间，分区吹干、短时休息，降低大型犬久站和噪音带来的压力。",
+    tag: "大狗专属",
+    price: "¥288 起",
+    src: "/assets/store-grooming.png",
+    alt: "宠物洗护店的大型犬吹干造型区"
   }
 ];
 
 const prices = [
   {
-    title: "轻松洁净",
+    title: "小型犬日常洗护",
     price: "¥98",
+    note: "约 60-80 分钟",
     featured: false,
-    items: ["洗澡与基础吹干", "指甲修剪", "耳道清洁", "脚底毛修整"]
+    items: ["温和沐浴与吹干", "耳道清洁", "指甲修剪", "脚底毛修整"]
   },
   {
-    title: "全身精护",
-    price: "¥188",
+    title: "中型犬全身精护",
+    price: "¥168",
+    note: "约 90-120 分钟",
     featured: true,
-    items: ["基础洗护全套", "开结与深层梳理", "局部修型", "护理后状态反馈"]
+    items: ["基础洗护全套", "深层梳理与开结", "护毛乳护理", "护理状态反馈"]
   },
   {
-    title: "造型焕新",
-    price: "¥268",
+    title: "造型美容套餐",
+    price: "¥238",
+    note: "按体型与毛量微调",
     featured: false,
-    items: ["全身洗护", "专属造型修剪", "毛发柔顺护理", "到店成片一张"]
+    items: ["全身洗护", "专属造型修剪", "毛发柔顺护理", "到店状态照"]
+  },
+  {
+    title: "猫咪安抚护理",
+    price: "¥198",
+    note: "需提前确认性格",
+    featured: false,
+    items: ["浮毛梳理", "指甲修剪", "局部清洁", "分段安抚休息"]
   }
+];
+
+const addOns = [
+  { name: "局部开结", price: "¥30-80" },
+  { name: "药浴/舒缓洗", price: "¥60 起" },
+  { name: "牙齿清洁", price: "¥39" },
+  { name: "肉垫护理", price: "¥29" },
+  { name: "肛门腺护理", price: "¥20" },
+  { name: "大型犬加时", price: "¥80 起" }
 ];
 
 const gallery = [
   {
-    src: "/assets/store-reception.png",
-    alt: "高端宠物洗护店前厅接待区",
-    title: "蓬松收尾",
-    copy: "洗后梳理，让毛发更轻盈。"
+    src: "/assets/service-basic-bath.png",
+    alt: "温和犬只基础洗护服务",
+    title: "洁净洗护",
+    copy: "从耳朵、指甲到脚底细节都做完整。"
   },
   {
-    src: "/assets/store-spa.png",
-    alt: "高端宠物洗护店专业洗护水疗区",
-    title: "多宠家庭",
-    copy: "可安排连续时段到店。"
+    src: "/assets/service-styling-trim.png",
+    alt: "宠物美容造型修剪服务",
+    title: "精修造型",
+    copy: "按毛量和脸型调整线条，不只剪短。"
   },
   {
-    src: "/assets/store-grooming.png",
-    alt: "高端宠物洗护店吹干造型区",
-    title: "护理记录",
-    copy: "每次都留下清晰反馈。"
+    src: "/assets/service-cat-care.png",
+    alt: "猫咪低压力梳毛护理服务",
+    title: "猫咪护理",
+    copy: "安静时段、分段处理，把压力降下来。"
   }
 ];
 
@@ -112,7 +155,7 @@ export function PetSpaLanding() {
     event.preventDefault();
     const form = event.currentTarget;
     const formData = new FormData(form);
-    const owner = formData.get("owner") || "您";
+    const owner = formData.get("owner") || "主人";
     const plan = formData.get("plan") || "洗护";
 
     setStatus(`${owner}，${plan}预约已记录，稍后会电话确认。`);
@@ -131,9 +174,9 @@ export function PetSpaLanding() {
             <span>泡泡爪 Pet Spa</span>
           </a>
           <div className="nav-links">
-            <a href="#services">洗护服务</a>
+            <a href="#services">洗护项目</a>
             <a href="#care">护理标准</a>
-            <a href="#pricing">套餐价格</a>
+            <a href="#pricing">价位表</a>
             <a href="#booking">预约到店</a>
           </div>
           <a className="nav-cta" href="#booking">
@@ -165,20 +208,20 @@ export function PetSpaLanding() {
               <p className="eyebrow">社区宠物洗护 · 美容 · 护理</p>
               <h1>泡泡爪 Pet Spa</h1>
               <p className="hero-copy">
-                给爱宠一场清爽、安心、低压力的洗护体验。独立洗护间、温和护理产品、透明报价，让每一次到店都更省心。
+                给爱宠一场清爽、安心、低压力的洗护体验。独立洗护间、温和护理产品、透明价位表，让每一次到店都更省心。
               </p>
               <div className="hero-actions">
                 <a className="button" href="#booking">
                   预约洗护
                 </a>
                 <a className="button secondary" href="#pricing">
-                  查看套餐
+                  查看价位
                 </a>
               </div>
             </div>
             <aside className="hero-note">
               <strong>今日可约</strong>
-              <span>小型犬基础洗护约 60 分钟，猫咪护理需提前确认性格与状态。</span>
+              <span>小型犬基础洗护约 60 分钟，猫咪护理需提前确认性格与当日状态。</span>
             </aside>
           </div>
           <div className="hero-dots" aria-label="店内环境轮播图">
@@ -200,9 +243,9 @@ export function PetSpaLanding() {
             <div className="section-head">
               <div>
                 <p className="kicker">Services</p>
-                <h2>从日常清洁到造型护理，一站式照顾毛孩子</h2>
+                <h2>洗护项目更细分，按体型、毛量和状态安排流程</h2>
               </div>
-              <p>服务前会先做皮毛状态检查，根据体型、毛量、皮肤敏感度和当日状态调整流程。</p>
+              <p>服务前先做皮毛状态检查，再根据体型、毛量、皮肤敏感度和当天情绪调整洗护方式。</p>
             </div>
 
             <div className="services">
@@ -235,7 +278,7 @@ export function PetSpaLanding() {
             <div className="portrait-stack" aria-hidden="true">
               <div className="portrait relative">
                 <Image
-                  src="/assets/store-grooming.png"
+                  src="/assets/service-styling-trim.png"
                   alt=""
                   fill
                   sizes="(max-width: 880px) 50vw, 35vw"
@@ -243,7 +286,7 @@ export function PetSpaLanding() {
               </div>
               <div className="portrait small relative">
                 <Image
-                  src="/assets/store-spa.png"
+                  src="/assets/service-coat-spa.png"
                   alt=""
                   fill
                   sizes="(max-width: 880px) 50vw, 25vw"
@@ -251,7 +294,7 @@ export function PetSpaLanding() {
               </div>
               <div className="portrait small relative">
                 <Image
-                  src="/assets/store-reception.png"
+                  src="/assets/service-cat-care.png"
                   alt=""
                   fill
                   sizes="(max-width: 880px) 100vw, 25vw"
@@ -302,9 +345,9 @@ export function PetSpaLanding() {
             <div className="section-head">
               <div>
                 <p className="kicker">Pricing</p>
-                <h2>常用套餐清晰标价，按体型和毛量微调</h2>
+                <h2>常用价位表清晰标价，到店按实际毛量微调</h2>
               </div>
-              <p>到店前可先发送爱宠照片，工作人员会预估时长和价格范围。</p>
+              <p>到店前可先发送爱宠照片，工作人员会预估时长和价格范围，严重打结、特殊护理会提前确认。</p>
             </div>
 
             <div className="pricing">
@@ -318,6 +361,7 @@ export function PetSpaLanding() {
                   <div className="price">
                     {price.price} <span>起</span>
                   </div>
+                  <p className="price-note">{price.note}</p>
                   <ul>
                     {price.items.map((item) => (
                       <li key={item}>{item}</li>
@@ -333,6 +377,21 @@ export function PetSpaLanding() {
                   </a>
                 </article>
               ))}
+            </div>
+
+            <div className="add-on-panel">
+              <div>
+                <p className="kicker">Add-ons</p>
+                <h3>加项价位</h3>
+              </div>
+              <div className="add-ons">
+                {addOns.map((item) => (
+                  <div className="add-on" key={item.name}>
+                    <span>{item.name}</span>
+                    <strong>{item.price}</strong>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -385,7 +444,7 @@ export function PetSpaLanding() {
             <figure className="store-map" aria-label="泡泡爪 Pet Spa 门店位置示意图">
               <Image
                 src="/assets/store-map-ai.png"
-                alt="可爱清新宠物店风格地图，标出我们的店位于上海市宜川路街道陕西北路1620号"
+                alt="可爱清新宠物店风格地图，标出门店位于上海市宜川路街道陕西北路1620号"
                 width={900}
                 height={900}
                 sizes="(max-width: 1040px) 50vw, 30vw"
@@ -403,7 +462,7 @@ export function PetSpaLanding() {
                 </label>
                 <label>
                   联系电话
-                  <input name="phone" type="tel" placeholder="请输入手机号码" required />
+                  <input name="phone" type="tel" placeholder="请输入手机号" required />
                 </label>
               </div>
 
@@ -428,9 +487,9 @@ export function PetSpaLanding() {
                     value={selectedPlan}
                   >
                     <option value="">请选择</option>
-                    <option>轻松洁净</option>
-                    <option>全身精护</option>
-                    <option>造型焕新</option>
+                    {prices.map((price) => (
+                      <option key={price.title}>{price.title}</option>
+                    ))}
                     <option>先咨询</option>
                   </select>
                 </label>
@@ -475,7 +534,7 @@ export function PetSpaLanding() {
       <footer>
         <div className="footer-inner">
           <span>泡泡爪 Pet Spa · 宠物洗护与美容</span>
-          <span>干净、温柔、准时，让爱宠漂亮回家。</span>
+          <span>干净、温柔、准时，让爱宠漂漂亮亮回家。</span>
         </div>
       </footer>
     </>

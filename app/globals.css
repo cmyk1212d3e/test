@@ -345,7 +345,7 @@ h2 {
 }
 
 .service-card {
-  min-height: 330px;
+  min-height: 390px;
   border-radius: 8px;
   overflow: hidden;
   background: var(--white);
@@ -354,7 +354,7 @@ h2 {
 }
 
 .service-image {
-  height: 180px;
+  height: 210px;
   background: var(--mist);
 }
 
@@ -475,14 +475,14 @@ h2 {
 
 .pricing {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
 }
 
 .price-card {
   position: relative;
   padding: 26px;
-  min-height: 360px;
+  min-height: 390px;
   display: flex;
   flex-direction: column;
   border-radius: 8px;
@@ -514,7 +514,7 @@ h2 {
 }
 
 .price {
-  margin-bottom: 18px;
+  margin-bottom: 8px;
   color: var(--ink);
   font-size: 44px;
   font-weight: 950;
@@ -525,6 +525,13 @@ h2 {
   color: var(--muted);
   font-size: 15px;
   font-weight: 700;
+}
+
+.price-note {
+  margin: 0 0 18px;
+  color: var(--teal);
+  font-size: 14px;
+  font-weight: 850;
 }
 
 .price-card ul {
@@ -555,6 +562,49 @@ h2 {
 .price-card .button {
   width: 100%;
   margin-top: auto;
+}
+
+.add-on-panel {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 24px;
+  align-items: start;
+  margin-top: 22px;
+  padding: 24px;
+  border-radius: 8px;
+  background: #f8fffb;
+  border: 1px solid var(--line);
+}
+
+.add-on-panel h3 {
+  margin-bottom: 0;
+  font-size: 26px;
+}
+
+.add-ons {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.add-on {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 52px;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 6px;
+  background: var(--white);
+  border: 1px solid rgba(219, 230, 231, 0.86);
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 760;
+}
+
+.add-on strong {
+  color: var(--coral);
+  white-space: nowrap;
 }
 
 .gallery-band {
@@ -784,6 +834,14 @@ footer {
 }
 
 @media (max-width: 1040px) {
+  .pricing {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .add-on-panel {
+    grid-template-columns: 1fr;
+  }
+
   .booking-grid {
     grid-template-columns: minmax(300px, 0.9fr) minmax(0, 1.1fr);
     gap: 18px;
@@ -832,7 +890,8 @@ footer {
   }
 
   .services,
-  .pricing {
+  .pricing,
+  .add-ons {
     grid-template-columns: 1fr;
   }
 
