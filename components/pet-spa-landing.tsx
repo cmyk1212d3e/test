@@ -142,6 +142,27 @@ export function PetSpaLanding() {
     return () => window.clearInterval(slideTimer);
   }, [timerVersion]);
 
+  function setDefaultArrival() {
+    const dateInput = formRef.current?.elements.namedItem("date") as HTMLInputElement | null;
+    const timeInput = formRef.current?.elements.namedItem("time") as HTMLInputElement | null;
+
+    if (!dateInput || !timeInput) {
+      return;
+    }
+
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const month = `${tomorrow.getMonth() + 1}`.padStart(2, "0");
+    const day = `${tomorrow.getDate()}`.padStart(2, "0");
+
+    dateInput.value = `${tomorrow.getFullYear()}-${month}-${day}`;
+    timeInput.value = "09:30";
+  }
+
+  useEffect(() => {
+    setDefaultArrival();
+  }, []);
+
   function showSlide(index: number) {
     setActiveSlide((index + heroSlides.length) % heroSlides.length);
     setTimerVersion((current) => current + 1);
@@ -187,6 +208,7 @@ export function PetSpaLanding() {
 
       setStatus(`${booking.owner || "主人"}，${booking.plan || "洗护"}预约已记录，稍后会电话确认。`);
       form.reset();
+      setDefaultArrival();
       setSelectedPlan("");
     } catch (error) {
       setStatus(error instanceof Error ? error.message : "预约提交失败，请稍后再试。");
@@ -534,14 +556,7 @@ export function PetSpaLanding() {
                 </label>
                 <label>
                   期望时段
-                  <select name="time" required defaultValue="">
-                    <option value="">请选择</option>
-                    <option>10:00 - 12:00</option>
-                    <option>12:00 - 14:00</option>
-                    <option>14:00 - 16:00</option>
-                    <option>16:00 - 18:00</option>
-                    <option>18:00 - 20:00</option>
-                  </select>
+                  <input name="time" type="time" required step={1800} />
                 </label>
               </div>
 
