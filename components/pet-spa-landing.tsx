@@ -131,6 +131,7 @@ export function PetSpaLanding() {
   const [timerVersion, setTimerVersion] = useState(0);
   const [selectedPlan, setSelectedPlan] = useState("");
   const [status, setStatus] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
@@ -151,16 +152,47 @@ export function PetSpaLanding() {
     setStatus("");
   }
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     const formData = new FormData(form);
-    const owner = formData.get("owner") || "主人";
-    const plan = formData.get("plan") || "洗护";
 
-    setStatus(`${owner}，${plan}预约已记录，稍后会电话确认。`);
-    form.reset();
-    setSelectedPlan("");
+    const booking = {
+      owner: String(formData.get("owner") || ""),
+      phone: String(formData.get("phone") || ""),
+      pet: String(formData.get("pet") || ""),
+      plan: String(formData.get("plan") || ""),
+      date: String(formData.get("date") || ""),
+      time: String(formData.get("time") || ""),
+      note: String(formData.get("note") || "")
+    };
+
+    setIsSubmitting(true);
+    setStatus("正在提交预约...");
+
+    try {
+      const response = await fetch("/api/appointments", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(booking)
+      });
+
+      const result = (await response.json().catch(() => ({}))) as { message?: string };
+
+      if (!response.ok) {
+        throw new Error(result.message || "预约提交失败，请稍后再试。");
+      }
+
+      setStatus(`${booking.owner || "主人"}，${booking.plan || "洗护"}预约已记录，稍后会电话确认。`);
+      form.reset();
+      setSelectedPlan("");
+    } catch (error) {
+      setStatus(error instanceof Error ? error.message : "预约提交失败，请稍后再试。");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -519,8 +551,8 @@ export function PetSpaLanding() {
               </label>
 
               <div className="form-foot">
-                <button className="button" type="submit">
-                  提交预约
+                <button className="button" type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? "提交中..." : "提交预约"}
                 </button>
                 <span className="form-status" id="formStatus" role="status" aria-live="polite">
                   {status}
